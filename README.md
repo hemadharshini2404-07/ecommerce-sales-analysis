@@ -4,6 +4,10 @@
 
 This project analyzes e-commerce sales data to identify sales trends, profitable categories, top-selling products, and regional performance.
 
+## 🚀 Live Dashboard
+
+[View Live E-Commerce Sales Dashboard](https://hemadharshini2404-07.github.io/ecommerce-sales-analysis/)
+
 ## Tools Used
 
 - Excel
