@@ -61,26 +61,14 @@ ecommerce-sales-analysis/
 ├── README.md
 ├── LICENSE
 └── .gitignore
-## Visualizations
-
-### Sales by Category
-
-![Sales by Category](category_sales.png)
-
-### Monthly Sales Trend
-
-![Monthly Sales Trend](monthly_sales_trend.png)
+```
 ## Project Highlights
 
-- Analyzed 30 e-commerce orders
-- Calculated total sales and profit
-- Identified top-selling products
-- Compared category-wise performance
-- Analyzed region-wise sales
-- Studied monthly sales trends
-- Used SQL for data analysis
-- Used Python for data processing and visualization
+- Analyzed sales and profit trends
+- Identified top-performing products and categories
+- Compared regional sales performance
+- Created visualizations using Python and Matplotlib
 
 ## Conclusion
 
-The analysis helps identify high-performing products, categories, and regions. These insights can support better sales planning and business decision-making.
+The analysis provides useful insights into sales, profit, product, category, and regional performance.
