@@ -57,6 +57,15 @@ ecommerce-sales-analysis/
 ├── README.md
 ├── LICENSE
 └── .gitignore
+## Visualizations
+
+### Sales by Category
+
+![Sales by Category](category_sales.png)
+
+### Monthly Sales Trend
+
+![Monthly Sales Trend](monthly_sales_trend.png)
 ## Project Highlights
 
 - Analyzed 30 e-commerce orders
