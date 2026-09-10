@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>E-Commerce Sales Analysis Dashboard</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #222;
+    }
+
+    .header {
+      background: #1f2937;
+      color: white;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      color: #d1d5db;
+      font-size: 15px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin: 30px 0 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      border-left: 5px solid #2563eb;
+    }
+
+    .card h3 {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .chart-box {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .chart-box h3 {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .chart-container {
+      position: relative;
+      height: 320px;
+    }
+
+    .insights {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+
+    .insights ul {
+      padding-left: 20px;
+      line-height: 2;
+    }
+
+    footer {
+      text-align: center;
+      background: #1f2937;
+      color: #d1d5db;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .charts {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>🛒 E-Commerce Sales Analysis</h1>
+    <p>Sales, Profit, Product, Category & Regional Performance Dashboard</p>
+  </header>
+
+  <main class="container">
+
+    <h2 class="section-title">Key Performance Indicators</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Total Sales</h3>
+        <p>₹654,500</p>
+      </div>
+
+      <div class="card">
+        <h3>Total Profit</h3>
+        <p>₹96,350</p>
+      </div>
+
+      <div class="card">
+        <h3>Total Orders</h3>
+        <p>30</p>
+      </div>
+
+      <div class="card">
+        <h3>Total Quantity</h3>
+        <p>94</p>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">Sales Analysis</h2>
+
+    <div class="charts">
+
+      <div class="chart-box">
+        <h3>Sales by Category</h3>
+        <div class="chart-container">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <h3>Sales by Region</h3>
+        <div class="chart-container">
+          <canvas id="regionChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <h3>Monthly Sales Trend</h3>
+        <div class="chart-container">
+          <canvas id="monthlyChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <h3>Top Products</h3>
+        <div class="chart-container">
+          <canvas id="productChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">Key Business Insights</h2>
+
+    <div class="insights">
+      <ul>
+        <li>Electronics generated the highest category sales.</li>
+        <li>South region recorded the highest sales.</li>
+        <li>Laptop was the top-selling product.</li>
+        <li>Total sales reached ₹654,500.</li>
+        <li>Total profit generated was ₹96,350.</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    E-Commerce Sales Analysis | Python • SQL • Pandas • Matplotlib
+  </footer>
+
+
+  <script>
+
+    // Category Sales Chart
+    new Chart(document.getElementById("categoryChart"), {
+      type: "bar",
+      data: {
+        labels: ["Electronics", "Furniture", "Clothing"],
+        datasets: [{
+          label: "Sales",
+          data: [415400, 181500, 57600]
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+
+    // Region Sales Chart
+    new Chart(document.getElementById("regionChart"), {
+      type: "doughnut",
+      data: {
+        labels: ["South", "North", "East", "West"],
+        datasets: [{
+          label: "Sales",
+          data: [346600, 125500, 109900, 72500]
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+
+    // Monthly Sales Chart
+    new Chart(document.getElementById("monthlyChart"), {
+      type: "line",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+        datasets: [{
+          label: "Monthly Sales",
+          data: [
+            139300,
+            34900,
+            64000,
+            139600,
+            98700,
+            80400,
+            47000
+          ],
+          tension: 0.3,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+
+    // Top Products Chart
+    new Chart(document.getElementById("productChart"), {
+      type: "bar",
+      data: {
+        labels: [
+          "Laptop",
+          "Mobile",
+          "Monitor",
+          "Tablet",
+          "Sofa"
+        ],
+        datasets: [{
+          label: "Sales",
+          data: [
+            165000,
+            110000,
+            60000,
+            54000,
+            54000
+          ]
+        }]
+      },
+      options: {
+        indexAxis: "y",
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+  </script>
+
+</body>
+  </html>
