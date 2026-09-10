@@ -57,3 +57,17 @@ ecommerce-sales-analysis/
 ├── README.md
 ├── LICENSE
 └── .gitignore
+## Project Highlights
+
+- Analyzed 30 e-commerce orders
+- Calculated total sales and profit
+- Identified top-selling products
+- Compared category-wise performance
+- Analyzed region-wise sales
+- Studied monthly sales trends
+- Used SQL for data analysis
+- Used Python for data processing and visualization
+
+## Conclusion
+
+The analysis helps identify high-performing products, categories, and regions. These insights can support better sales planning and business decision-making.
